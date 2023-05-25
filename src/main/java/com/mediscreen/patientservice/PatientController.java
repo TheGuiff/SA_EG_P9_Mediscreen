@@ -40,7 +40,7 @@ public class PatientController {
 
     @PostMapping("/add")
     public String addPatient(@RequestBody PatientDto patientDto) {
-        log.info("Add patient");
+        log.info("Add new patient");
         return JsonStream.serialize(patientService.addPatient(patientDto));
     }
 
