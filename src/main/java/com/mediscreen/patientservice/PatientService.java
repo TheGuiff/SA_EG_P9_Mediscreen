@@ -28,16 +28,13 @@ public class PatientService {
                 .collect(Collectors.toList());
     }
 
-    @Transactional
-    public PatientDto updatePatient(Long patientId, PatientDto patientDto) {
-        patientRepository.deleteById(patientId);
+    public PatientDto updatePatient(Long patientId, PatientDto patientDto) throws Exception {
         Patient patient = new Patient(patientDto);
         patient.setPatientId(patientId);
         return new PatientDto(patientRepository.save(patient));
     }
 
-    @Transactional
-    public PatientDto addPatient (PatientDto patientDto) {
+    public PatientDto addPatient (PatientDto patientDto) throws Exception {
         Patient patient = new Patient(patientDto);
         return new PatientDto(patientRepository.save(patient));
     }
