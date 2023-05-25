@@ -33,4 +33,18 @@ public class PatientDto {
         this.address = patient.getAddress();
         this.phone = patient.getPhone();
     }
+
+    public PatientDto(String firstname,
+                      String lastname,
+                      String birthdate,
+                      String gender,
+                      String address,
+                      String phone) {
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.birthdate = birthdate;
+        this.gender = gender;
+        this.address = address;
+        this.phone = phone;
+    }
 }
