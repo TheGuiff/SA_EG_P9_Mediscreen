@@ -1,11 +1,10 @@
-package com.mediscreen.patientservice;
+package com.mediscreen.patientservice.service;
 
 import com.mediscreen.patientservice.dto.PatientDto;
 import com.mediscreen.patientservice.model.Patient;
+import com.mediscreen.patientservice.repository.PatientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.mediscreen.patientservice.PatientRepository;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;

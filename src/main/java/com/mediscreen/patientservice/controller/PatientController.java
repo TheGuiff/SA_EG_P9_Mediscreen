@@ -1,16 +1,12 @@
-package com.mediscreen.patientservice;
+package com.mediscreen.patientservice.controller;
 
 import com.jsoniter.output.JsonStream;
+import com.mediscreen.patientservice.service.PatientService;
 import com.mediscreen.patientservice.dto.PatientDto;
-import com.mediscreen.patientservice.model.Patient;
-import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 import java.util.NoSuchElementException;
 
 @RestController
@@ -21,6 +17,10 @@ public class PatientController {
     @Autowired
     private PatientService patientService;
 
+    /**
+     * List of patients
+     * @return String
+     */
     @GetMapping("/")
     public String getAllPatient() {
         log.info("Get all patients");

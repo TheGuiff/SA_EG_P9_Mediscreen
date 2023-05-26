@@ -5,16 +5,14 @@ import com.mediscreen.patientservice.dto.PatientDto;
 import com.mediscreen.patientservice.exceptions.GenderConvertException;
 import com.mediscreen.patientservice.exceptions.LocalDateConverterException;
 import com.mediscreen.patientservice.exceptions.MandatoryFieldsException;
-import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Null;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 @Getter
 @Setter
@@ -49,20 +47,6 @@ public class Patient {
 
     @Column
     private String phone;
-
-//    public Patient (String firstnameIn,
-//                    String lastnameIn,
-//                    LocalDate birthdateIn,
-//                    Gender genderIn,
-//                    String addressIn,
-//                    String phoneIn) {
-//        this.setFirstname(firstnameIn);
-//        this.setLastname(lastnameIn);
-//        this.setBirthdate(birthdateIn);
-//        this.setGender(genderIn);
-//        this.setAddress(addressIn);
-//        this.setPhone(phoneIn);
-//    }
 
     public Patient (PatientDto patientDto) throws Exception {
         if (patientDto.getFirstname().isEmpty() || patientDto.getLastname().isEmpty() || patientDto.getBirthdate().isEmpty() || patientDto.getGender().isEmpty()

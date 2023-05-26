@@ -6,6 +6,9 @@ import com.mediscreen.patientservice.exceptions.LocalDateConverterException;
 import com.mediscreen.patientservice.exceptions.MandatoryFieldsException;
 import com.mediscreen.patientservice.model.Patient;
 import java.util.List;
+
+import com.mediscreen.patientservice.repository.PatientRepository;
+import com.mediscreen.patientservice.service.PatientService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
