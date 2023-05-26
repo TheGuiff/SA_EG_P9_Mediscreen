@@ -1,10 +1,6 @@
 package com.mediscreen.patientservice.dto;
 
-import com.mediscreen.patientservice.model.Gender;
 import com.mediscreen.patientservice.model.Patient;
-import jakarta.persistence.Column;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
