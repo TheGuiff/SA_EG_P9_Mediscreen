@@ -52,8 +52,8 @@ public class PatientServiceTest {
 
     @Test
     public void getPatientOk() {
-        Optional<PatientDto> optionalPatientDto = patientService.getPatient(id1);
-        assertTrue(optionalPatientDto.isPresent());
+        PatientDto patientDto = patientService.getPatient(id1);
+        assertEquals("ok1", patientDto.getLastname());
     }
 
     @Test

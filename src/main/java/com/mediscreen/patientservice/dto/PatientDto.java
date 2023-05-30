@@ -10,6 +10,7 @@ import java.time.LocalDate;
 @Setter
 public class PatientDto {
 
+    private Long patientId;
     private String firstname;
     private String lastname;
     private String birthdate;
@@ -22,6 +23,7 @@ public class PatientDto {
     }
 
     public PatientDto(Patient patient) {
+        this.patientId = patient.getPatientId();
         this.firstname = patient.getFirstname();
         this.lastname = patient.getLastname();
         this.birthdate = patient.getBirthdate().toString();

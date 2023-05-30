@@ -76,7 +76,7 @@ public class PatientControllerTest {
 
     @Test
     public void getPatient() {
-        when(patientService.getPatient(isA(Long.class))).thenReturn(Optional.of(patientDto1));
+        when(patientService.getPatient(isA(Long.class))).thenReturn(patientDto1);
         assertEquals(patientDtoJson, patientController.getPatient(1L));
     }
 

@@ -63,7 +63,7 @@ public class Patient {
         try {
             this.gender = Gender.valueOf(patientDto.getGender());
         } catch (Exception e) {
-            throw new GenderConvertException("Unknown gender - must be F(female), M(male) or N(non-binary)");
+            throw new GenderConvertException("Unknown gender - must be F(female) or M(male)");
         }
         this.address = patientDto.getAddress();
         this.phone = patientDto.getPhone();
