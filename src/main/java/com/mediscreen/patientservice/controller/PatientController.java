@@ -1,12 +1,15 @@
 package com.mediscreen.patientservice.controller;
 
 import com.jsoniter.output.JsonStream;
+import com.mediscreen.patientservice.exceptions.NoPatientException;
+import com.mediscreen.patientservice.model.Patient;
 import com.mediscreen.patientservice.service.PatientService;
 import com.mediscreen.patientservice.dto.PatientDto;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.NoSuchElementException;
 
 @RestController
@@ -22,45 +25,27 @@ public class PatientController {
      * @return String
      */
     @GetMapping("/")
-    public String getAllPatient() {
+    public List<PatientDto> getAllPatient() {
         log.info("Get all patients");
-            return JsonStream.serialize(patientService.getAllPatients());
+            return patientService.getAllPatients();
     }
 
     @GetMapping("/{id}")
-    public String getPatient(@PathVariable("id") Long id) {
+    public PatientDto getPatient(@PathVariable("id") Long id) throws NoPatientException {
         log.info("Get patient by id {}", id);
-        try {
-            return JsonStream.serialize(patientService.getPatient(id).get());
-        } catch (NoSuchElementException e) {
-            log.error(e.getMessage());
-            return e.getMessage();
-        }
+        return patientService.getPatient(id);
     }
 
     @PutMapping("/{id}")
-    public String updatePatient(@PathVariable("id") Long id, @RequestBody PatientDto patient) {
+    public PatientDto updatePatient(@PathVariable("id") Long id, @RequestBody PatientDto patient) throws Exception {
         log.info("Update patient by id : ", id);
-        try {
-            return JsonStream.serialize(patientService.updatePatient(id, patient));
-        } catch (NoSuchElementException e) {
-            log.error(e.getMessage());
-            return e.getMessage();
-        } catch (Exception e) {
-            log.error(e.getMessage());
-            return e.getMessage();
-        }
+        return patientService.updatePatient(id, patient);
     }
 
     @PostMapping("/add")
-    public String addPatient(@RequestBody PatientDto patientDto) {
+    public PatientDto addPatient(@RequestBody PatientDto patientDto) throws Exception {
         log.info("Add new patient");
-        try {
-            return JsonStream.serialize(patientService.addPatient(patientDto));
-        } catch (Exception e) {
-            log.error(e.getMessage());
-            return e.getMessage();
-        }
+        return patientService.addPatient(patientDto);
     }
 
 }
